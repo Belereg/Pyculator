@@ -9,10 +9,16 @@ def resource_path(relative_path):
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
 
+
 resource_path('calculator.ico')
+
+# global variables
+
 answer = None
 operation = 'n'
 
+
+# defining the functions for each simple math operation
 
 def button_click(number):
     current = entry.get()
@@ -80,13 +86,15 @@ def button_clear():
 root = Tk()
 root.minsize(375, 260)
 root.maxsize(375, 260)
-#root.iconbitmap("calculator.ico")
+# root.iconbitmap("calculator.ico")
 root.title("Pyculator")
 root.configure(bg='black')
 myFont = font.Font(size=15)
 entry = Entry(root, width=45, borderwidth=5, bg='black', fg='white')
 entry.grid(row=0, column=0, columnspan=5)
 text = Label(root, text="Pyculator, basically the best calculator out there")
+
+# creating the buttons
 
 button_0 = Button(root, text="0", command=lambda: button_click(0), padx=40, pady=10, font=myFont, bd=1, bg='#FFDE8E',
                   activebackground='#FFB430')
@@ -122,6 +130,9 @@ button_equal = Button(root, text="=", command=button_equal, padx=40, pady=10, fo
                       activebackground='#7E30FF')
 button_clear = Button(root, text="Clear", command=button_clear, padx=22, pady=10, font=myFont, bd=1, bg='#BA90FF',
                       activebackground='#7E30FF')
+
+# adding the buttons on the application layout
+
 button_7.grid(row=1, column=0)
 button_8.grid(row=1, column=1)
 button_9.grid(row=1, column=2)
@@ -140,6 +151,5 @@ button_equal.grid(row=4, column=2)
 button_clear.grid(row=4, column=1)
 button_divide.grid(row=3, column=4)
 button_multiply.grid(row=4, column=4)
-# putting the buttons on the screen
 
 root.mainloop()
